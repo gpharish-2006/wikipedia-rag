@@ -6,16 +6,16 @@ from llama_index.llms.huggingface_api import HuggingFaceInferenceAPI
 from llama_index.readers.wikipedia import WikipediaReader
 from llama_index.core import VectorStoreIndex, StorageContext, load_index_from_storage
 from llama_index.embeddings.huggingface_api import HuggingFaceInferenceAPIEmbedding
-from llama_index.core import Settings
+# from llama_index.core import Settings
 
 
 load_dotenv()
 
-Settings.llm = HuggingFaceInferenceAPI(
-    model_name="meta-llama/Meta-Llama-3.1-8B-Instruct",
-    token=os.environ['HF_TOKEN'],
-    provider="auto"
-)
+# Settings.llm = HuggingFaceInferenceAPI(
+#     model_name="google/flan-t5-small",
+#     token=os.environ['HF_TOKEN'],
+#     provider="auto"
+# )
 
 INDEX_DIR = 'wiki'
 PAGES = [
@@ -49,7 +49,7 @@ def get_index():
     
     docs = WikipediaReader().load_data(pages=PAGES, auto_suggest=False)
     embed_model = HuggingFaceInferenceAPIEmbedding(
-        model_name="Qwen/Qwen2.5-72B-Instruct",
+        model_name="sentence-transformers/all-MiniLM-L6-v2",
         token=os.environ['HF_TOKEN']
     )
     
@@ -62,12 +62,12 @@ def get_query_engine():
     index = get_index()
     
     llm = HuggingFaceInferenceAPI(
-        model_name="meta-llama/Meta-Llama-3.1-8B-Instruct",
+        model_name="google/flan-t5-small",
         token=os.environ['HF_TOKEN'],
         provider="auto"
     )
     
-    Settings.llm = llm
+    # Settings.llm = llm
     return index.as_query_engine(llm=llm, similarity_top_k=3)   
 
 def main():
