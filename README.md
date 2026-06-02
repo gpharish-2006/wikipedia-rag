@@ -17,7 +17,7 @@ The application follows a standard **RAG (Retrieval-Augmented Generation)** pipe
     On the first run, the `WikipediaReader` fetches raw text from the specified articles (e.g., "Artificial intelligence", "Machine learning").
 
 2.  **Vector Embedding**  
-    The text is split into chunks and converted into numerical vectors using the embedding models via the Hugging Face Inference API.
+    The text is split into chunks and converted into numerical vectors using the embedding models.
 
 3.  **Local Persistence**  
     These vectors are saved to a local `./wiki` directory. On subsequent runs, the app loads this index instantly instead of re-downloading data.
@@ -31,14 +31,7 @@ The application follows a standard **RAG (Retrieval-Augmented Generation)** pipe
 
 ## Quick Start
 
-### 1. Prerequisites
-
-- Python 3.9+
-
-- A **Hugging Face Account Access Token** in .env file.
-
-
-### 2. Installation
+### 1. Installation
 ```bash
 pip install uv
 ```
