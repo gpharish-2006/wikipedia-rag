@@ -19,21 +19,6 @@ PAGES = [
     'Natural language processing',
     'Deep learning',
     'Reinforcement learning',
-    # 'Supervised learning',
-    # 'Unsupervised learning',
-    # 'Neural networks',
-    # 'Computer vision',
-    # 'Transformers (machine learning model)',
-    # 'Convolutional neural networks',
-    # 'Recurrent neural networks',
-    # 'Generative adversarial networks',
-    # 'Transformer models',
-    # 'Support vector machines',
-    # 'Decision trees',
-    # 'Random forests',
-    # 'Gradient boosting',
-    # 'K-nearest neighbors',
-    # 'Feature engineering',
 ]
 
 Settings.llm = Ollama(
